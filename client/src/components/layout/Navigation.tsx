@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
-import { Menu, X, Eye, Heart } from "lucide-react";
+import { Menu, X, Heart } from "lucide-react";
+import logoImage from "@assets/generated_images/vision_health_nonprofit_eye_logo.png";
 
 export function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -36,13 +37,11 @@ export function Navigation() {
       <div className="max-w-6xl mx-auto px-6">
         <div className="flex items-center justify-between h-16 md:h-20">
           <Link href="/" className="flex items-center gap-3" data-testid="link-logo">
-            <div className={`w-10 h-10 rounded-sm flex items-center justify-center transition-all duration-500 ${
-              isScrolled 
-                ? "bg-primary/10 border border-primary/20" 
-                : "bg-white/10 border border-white/20"
-            }`}>
-              <Eye className={`w-5 h-5 transition-colors duration-500 ${isScrolled ? "text-primary" : "text-white"}`} />
-            </div>
+            <img 
+              src={logoImage} 
+              alt="VER International Logo" 
+              className="w-10 h-10 rounded-sm object-contain"
+            />
             <div className="flex flex-col">
               <span className={`font-semibold text-sm tracking-wide transition-colors duration-500 ${
                 isScrolled ? "text-foreground" : "text-white"
