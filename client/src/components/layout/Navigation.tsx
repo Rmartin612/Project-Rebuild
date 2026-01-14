@@ -26,63 +26,65 @@ export function Navigation() {
 
   return (
     <nav 
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         isScrolled 
-          ? "bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border-b border-border/50 shadow-sm" 
+          ? "bg-background/95 backdrop-blur-xl border-b border-border/40 shadow-elegant" 
           : "bg-transparent"
       }`}
       data-testid="navigation"
     >
-      <div className="max-w-7xl mx-auto px-4 md:px-8">
+      <div className="max-w-6xl mx-auto px-6">
         <div className="flex items-center justify-between h-16 md:h-20">
           <Link href="/" className="flex items-center gap-3" data-testid="link-logo">
-            <div className={`w-11 h-11 rounded-xl flex items-center justify-center transition-all duration-300 ${
+            <div className={`w-10 h-10 rounded-sm flex items-center justify-center transition-all duration-500 ${
               isScrolled 
-                ? "bg-gradient-to-br from-primary to-blue-600 shadow-lg" 
-                : "bg-white/10 backdrop-blur-sm border border-white/20"
+                ? "bg-primary/10 border border-primary/20" 
+                : "bg-white/10 border border-white/20"
             }`}>
-              <Eye className={`w-6 h-6 ${isScrolled ? "text-white" : "text-white"}`} />
+              <Eye className={`w-5 h-5 transition-colors duration-500 ${isScrolled ? "text-primary" : "text-white"}`} />
             </div>
             <div className="flex flex-col">
-              <span className={`font-bold text-base transition-colors duration-300 ${
+              <span className={`font-semibold text-sm tracking-wide transition-colors duration-500 ${
                 isScrolled ? "text-foreground" : "text-white"
               }`}>
                 VER International
               </span>
-              <span className={`text-xs font-medium hidden sm:block transition-colors duration-300 ${
-                isScrolled ? "text-muted-foreground" : "text-white/70"
+              <span className={`text-[10px] tracking-[0.15em] uppercase hidden sm:block transition-colors duration-500 ${
+                isScrolled ? "text-muted-foreground" : "text-white/60"
               }`}>
                 Bringing the Gift of Sight
               </span>
             </div>
           </Link>
 
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden md:flex items-center gap-10">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className={`text-sm font-medium transition-all duration-300 relative group ${
+                className={`text-sm font-medium transition-all duration-300 relative ${
                   isActive(link.href)
-                    ? isScrolled ? "text-primary" : "text-white"
+                    ? isScrolled ? "text-foreground" : "text-white"
                     : isScrolled 
                       ? "text-muted-foreground hover:text-foreground" 
-                      : "text-white/70 hover:text-white"
+                      : "text-white/60 hover:text-white"
                 }`}
                 data-testid={`link-nav-${link.label.toLowerCase()}`}
               >
                 {link.label}
-                <span className={`absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r from-primary to-accent transition-all duration-300 ${
-                  isActive(link.href) ? "w-full" : "w-0 group-hover:w-full"
+                <span className={`absolute -bottom-1 left-0 h-px transition-all duration-300 ${
+                  isActive(link.href) 
+                    ? "w-full bg-accent" 
+                    : "w-0"
                 }`} />
               </Link>
             ))}
             <Link href="/donate">
               <Button 
-                className={`rounded-full font-semibold px-6 transition-all duration-300 ${
+                className={`rounded-sm font-medium px-6 transition-all duration-500 ${
                   isScrolled 
-                    ? "btn-premium text-slate-900" 
-                    : "bg-white/10 backdrop-blur-sm border border-white/30 text-white hover:bg-white/20"
+                    ? "btn-stately text-white" 
+                    : "bg-white/10 border border-white/20 text-white hover:bg-white/15"
                 }`}
                 data-testid="button-donate-nav"
               >
@@ -93,7 +95,7 @@ export function Navigation() {
           </div>
 
           <button
-            className={`md:hidden p-2 rounded-lg transition-colors ${
+            className={`md:hidden p-2 rounded-sm transition-colors ${
               isScrolled ? "hover:bg-muted" : "hover:bg-white/10"
             }`}
             onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -101,9 +103,9 @@ export function Navigation() {
             data-testid="button-mobile-menu"
           >
             {isMenuOpen ? (
-              <X className={`w-6 h-6 ${isScrolled ? "text-foreground" : "text-white"}`} />
+              <X className={`w-5 h-5 ${isScrolled ? "text-foreground" : "text-white"}`} />
             ) : (
-              <Menu className={`w-6 h-6 ${isScrolled ? "text-foreground" : "text-white"}`} />
+              <Menu className={`w-5 h-5 ${isScrolled ? "text-foreground" : "text-white"}`} />
             )}
           </button>
         </div>
@@ -111,23 +113,23 @@ export function Navigation() {
         {isMenuOpen && (
           <div 
             className={`md:hidden py-6 border-t transition-all duration-300 ${
-              isScrolled ? "border-border bg-white/50 dark:bg-slate-900/50" : "border-white/10 bg-slate-900/90"
-            } backdrop-blur-xl rounded-b-2xl`}
+              isScrolled ? "border-border bg-background/95" : "border-white/10 bg-slate-900/95"
+            } backdrop-blur-xl`}
             data-testid="mobile-menu"
           >
-            <div className="flex flex-col gap-2">
+            <div className="flex flex-col gap-1">
               {navLinks.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`text-base font-medium py-3 px-4 rounded-xl transition-all ${
+                  className={`text-sm font-medium py-3 px-4 rounded-sm transition-all ${
                     isActive(link.href)
                       ? isScrolled 
-                        ? "text-primary bg-primary/10" 
+                        ? "text-foreground bg-muted" 
                         : "text-white bg-white/10"
                       : isScrolled 
                         ? "text-muted-foreground hover:bg-muted" 
-                        : "text-white/70 hover:text-white hover:bg-white/10"
+                        : "text-white/60 hover:text-white hover:bg-white/10"
                   }`}
                   onClick={() => setIsMenuOpen(false)}
                   data-testid={`link-mobile-${link.label.toLowerCase()}`}
@@ -137,7 +139,7 @@ export function Navigation() {
               ))}
               <div className="pt-4 px-4">
                 <Link href="/donate" onClick={() => setIsMenuOpen(false)}>
-                  <Button className="w-full btn-premium text-slate-900 font-semibold py-5 rounded-xl" data-testid="button-donate-mobile">
+                  <Button className="w-full btn-stately text-white font-medium py-5 rounded-sm" data-testid="button-donate-mobile">
                     <Heart className="w-4 h-4 mr-2" />
                     Donate Now
                   </Button>
