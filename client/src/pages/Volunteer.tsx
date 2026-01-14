@@ -74,7 +74,7 @@ export default function Volunteer() {
       <section className="py-16 md:py-24" data-testid="section-urgent-needs">
         <div className="max-w-7xl mx-auto px-4 md:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">Our Urgent Needs</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4" data-testid="text-urgent-needs-heading">Our Urgent Needs</h2>
             <p className="text-muted-foreground max-w-2xl mx-auto" data-testid="text-urgent-needs-intro">
               If you'd like to get involved, please visit our Contact Us page to get more information.
             </p>
@@ -97,7 +97,7 @@ export default function Volunteer() {
           </div>
 
           <div className="mb-8">
-            <h3 className="text-xl font-semibold text-foreground mb-6 text-center">Skilled Volunteer Clinical Staff</h3>
+            <h3 className="text-xl font-semibold text-foreground mb-6 text-center" data-testid="text-clinical-staff-heading">Skilled Volunteer Clinical Staff</h3>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {volunteerNeeds.map((need, index) => (
                 <Card key={index} className="hover-elevate">
@@ -126,8 +126,8 @@ export default function Volunteer() {
           <div className="w-16 h-16 rounded-full bg-primary flex items-center justify-center mx-auto mb-6">
             <Mail className="w-8 h-8 text-primary-foreground" />
           </div>
-          <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">Get in Touch</h2>
-          <p className="text-muted-foreground mb-6 max-w-xl mx-auto">
+          <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4" data-testid="text-contact-heading">Get in Touch</h2>
+          <p className="text-muted-foreground mb-6 max-w-xl mx-auto" data-testid="text-contact-subtitle">
             Interested in volunteering or learning more about our mission? We'd love to hear from you.
           </p>
           <a 
@@ -143,8 +143,8 @@ export default function Volunteer() {
 
       <section className="py-16 md:py-24 bg-accent/10" data-testid="section-volunteer-cta">
         <div className="max-w-4xl mx-auto px-4 md:px-8 text-center">
-          <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">Make a Difference Today</h2>
-          <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
+          <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4" data-testid="text-volunteer-cta-heading">Make a Difference Today</h2>
+          <p className="text-muted-foreground mb-8 max-w-2xl mx-auto" data-testid="text-volunteer-cta-subtitle">
             Your contribution helps provide life-changing vision care to communities in need.
           </p>
           <Link href="/donate">

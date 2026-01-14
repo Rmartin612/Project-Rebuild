@@ -23,7 +23,7 @@ export default function About() {
           <h1 className="text-3xl md:text-5xl font-bold text-white mb-4" data-testid="text-about-title">
             Our Inspiration
           </h1>
-          <p className="text-lg md:text-xl text-white/90 max-w-2xl mx-auto">
+          <p className="text-lg md:text-xl text-white/90 max-w-2xl mx-auto" data-testid="text-about-subtitle">
             The story behind VER International
           </p>
         </div>
@@ -43,7 +43,7 @@ export default function About() {
               </div>
             </div>
             <div className="space-y-6">
-              <h2 className="text-2xl md:text-3xl font-bold text-foreground">The Story of Bob Martin</h2>
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground" data-testid="text-story-heading">The Story of Bob Martin</h2>
               <div className="relative pl-6 border-l-4 border-primary">
                 <Quote className="absolute -left-3 -top-1 w-6 h-6 text-primary bg-background" />
                 <p className="text-muted-foreground leading-relaxed italic" data-testid="text-bob-story">
@@ -66,7 +66,7 @@ export default function About() {
                 <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center">
                   <Users className="w-6 h-6 text-primary-foreground" />
                 </div>
-                <h2 className="text-2xl md:text-3xl font-bold text-foreground">Staff Expertise</h2>
+                <h2 className="text-2xl md:text-3xl font-bold text-foreground" data-testid="text-expertise-heading">Staff Expertise</h2>
               </div>
               <p className="text-muted-foreground leading-relaxed text-lg" data-testid="text-expertise">
                 VER core staff have decades of experience providing vision services to impoverished communities in Central and South America. We invite you to join us in bringing vision services to areas of greatest need.
@@ -93,8 +93,8 @@ export default function About() {
 
       <section className="py-16 md:py-24 bg-accent/10" data-testid="section-about-cta">
         <div className="max-w-4xl mx-auto px-4 md:px-8 text-center">
-          <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">Continue Bob's Legacy</h2>
-          <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
+          <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4" data-testid="text-about-cta-heading">Continue Bob's Legacy</h2>
+          <p className="text-muted-foreground mb-8 max-w-2xl mx-auto" data-testid="text-about-cta-subtitle">
             Honor the memory of Robert Martin by supporting our mission to restore sight to those in need.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

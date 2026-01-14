@@ -59,7 +59,7 @@ export default function Home() {
           <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight" data-testid="text-hero-title">
             Volunteer Eye Resources International – Bringing the Gift of Sight and Hope
           </h1>
-          <p className="text-lg md:text-xl text-white/90 mb-8 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-lg md:text-xl text-white/90 mb-8 max-w-2xl mx-auto leading-relaxed" data-testid="text-hero-subtitle">
             Restoring sight and transforming lives in developing nations
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -80,7 +80,7 @@ export default function Home() {
 
       <section className="py-16 md:py-24 bg-blue-50 dark:bg-blue-950/20" data-testid="section-mission">
         <div className="max-w-4xl mx-auto px-4 md:px-8 text-center">
-          <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-6">Our Mission</h2>
+          <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-6" data-testid="text-mission-heading">Our Mission</h2>
           <p className="text-lg md:text-xl text-muted-foreground leading-relaxed" data-testid="text-mission">
             Volunteer Eye Resources International was founded to improve and restore sight to individuals living in extreme poverty in developing nations by providing high quality, comprehensive, & community-driven eye care services, applying best practices in global health, at no cost.
           </p>
@@ -91,7 +91,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 md:px-8">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
-              <h2 className="text-2xl md:text-3xl font-bold text-foreground">Our Commitment</h2>
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground" data-testid="text-commitment-heading">Our Commitment</h2>
               <p className="text-muted-foreground leading-relaxed" data-testid="text-commitment">
                 Most of us take for granted our ability to see the world around us and our ease with which we move through our daily lives without restriction. But for those in developing countries, without access to medical treatment and optometry services, poor vision can dramatically impact an individual's ability to learn, work, and support themselves and their family.
               </p>
@@ -116,8 +116,8 @@ export default function Home() {
       <section className="py-16 md:py-24 bg-primary text-primary-foreground" data-testid="section-impact">
         <div className="max-w-7xl mx-auto px-4 md:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-2xl md:text-3xl font-bold mb-4">The Global Impact</h2>
-            <p className="text-primary-foreground/80 max-w-2xl mx-auto">
+            <h2 className="text-2xl md:text-3xl font-bold mb-4" data-testid="text-impact-heading">The Global Impact</h2>
+            <p className="text-primary-foreground/80 max-w-2xl mx-auto" data-testid="text-impact-intro">
               According to the World Health Organization (WHO), blindness is an underlying cause of poverty and hunger in developing countries. WHO estimates that of the world's 39 million blind people:
             </p>
           </div>
@@ -141,7 +141,7 @@ export default function Home() {
 
       <section className="py-16 md:py-24" data-testid="section-focus">
         <div className="max-w-4xl mx-auto px-4 md:px-8">
-          <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-6 text-center">Our Focus</h2>
+          <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-6 text-center" data-testid="text-focus-heading">Our Focus</h2>
           <p className="text-muted-foreground leading-relaxed text-center mb-8" data-testid="text-focus">
             We partner with communities in our host country to coordinate and provide adult and pediatric surgery, refractions, and eyeglasses. Our focus is not only on the provision of critically needed services but also to educate and train local providers for long-term sustainability. VER works with host communities to ensure all services are supported, coordinated, and provided in a culturally appropriate manner.
           </p>
@@ -158,7 +158,7 @@ export default function Home() {
 
       <section className="py-16 md:py-24 bg-muted/30" data-testid="section-board">
         <div className="max-w-7xl mx-auto px-4 md:px-8">
-          <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-8 text-center">Operational Board 2024-2025</h2>
+          <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-8 text-center" data-testid="text-board-heading">Operational Board 2024-2025</h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {boardMembers.map((member, index) => (
               <Card key={index} className="hover-elevate">
@@ -179,8 +179,8 @@ export default function Home() {
       <section className="py-16 md:py-24" data-testid="section-founders">
         <div className="max-w-7xl mx-auto px-4 md:px-8">
           <div className="text-center mb-8">
-            <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-2">Founders</h2>
-            <p className="text-muted-foreground italic">In Memory of Robert G. Martin II ~ 2015</p>
+            <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-2" data-testid="text-founders-heading">Founders</h2>
+            <p className="text-muted-foreground italic" data-testid="text-founders-memorial">In Memory of Robert G. Martin II ~ 2015</p>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
             {founders.map((founder, index) => (
@@ -198,8 +198,8 @@ export default function Home() {
 
       <section className="py-16 md:py-24 bg-accent/10" data-testid="section-cta">
         <div className="max-w-4xl mx-auto px-4 md:px-8 text-center">
-          <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">Join Us in Restoring Sight</h2>
-          <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
+          <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4" data-testid="text-cta-heading">Join Us in Restoring Sight</h2>
+          <p className="text-muted-foreground mb-8 max-w-2xl mx-auto" data-testid="text-cta-subtitle">
             Your support helps provide life-changing vision care to those who need it most.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
