@@ -109,20 +109,24 @@ function AnimatedCounter({ value, suffix = "" }: { value: number; suffix?: strin
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    const currentRef = ref.current;
+    if (!currentRef) return;
+
     const observer = new IntersectionObserver(
       (entries) => {
         if (entries[0].isIntersecting && !hasStarted) {
           setHasStarted(true);
+          observer.disconnect();
         }
       },
       { threshold: 0.3 }
     );
 
-    if (ref.current) {
-      observer.observe(ref.current);
-    }
+    observer.observe(currentRef);
 
-    return () => observer.disconnect();
+    return () => {
+      observer.disconnect();
+    };
   }, [hasStarted]);
 
   useEffect(() => {
@@ -162,9 +166,11 @@ export default function Home() {
     setIsModalOpen(true);
   };
 
-  const handleCloseModal = () => {
-    setIsModalOpen(false);
-    setTimeout(() => setSelectedMember(null), 300);
+  const handleModalOpenChange = (open: boolean) => {
+    setIsModalOpen(open);
+    if (!open) {
+      setTimeout(() => setSelectedMember(null), 300);
+    }
   };
 
   return (
@@ -404,7 +410,7 @@ export default function Home() {
       <BoardMemberModal 
         member={selectedMember}
         isOpen={isModalOpen}
-        onClose={handleCloseModal}
+        onOpenChange={handleModalOpenChange}
       />
 
       <section className="py-28 md:py-40 bg-section-warm dark:bg-muted/20 relative" data-testid="section-founders">

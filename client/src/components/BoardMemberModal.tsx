@@ -1,14 +1,13 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import {
   Dialog,
   DialogContent,
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
-import { X, Mail, Award, Calendar } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
+import { Award, Calendar } from "lucide-react";
+import { motion } from "@/hooks/use-scroll-animation";
 
 export interface BoardMember {
   id: string;
@@ -24,20 +23,38 @@ export interface BoardMember {
 interface BoardMemberModalProps {
   member: BoardMember | null;
   isOpen: boolean;
-  onClose: () => void;
+  onOpenChange: (open: boolean) => void;
 }
 
-export function BoardMemberModal({ member, isOpen, onClose }: BoardMemberModalProps) {
-  if (!member) return null;
-
-  const initials = member.name
+function MemberAvatar({ name, imageUrl, size = "md" }: { name: string; imageUrl?: string; size?: "sm" | "md" | "lg" }) {
+  const initials = name
     .split(" ")
     .map((n) => n[0])
     .join("")
     .slice(0, 2);
 
+  const sizeClasses = {
+    sm: "w-14 h-14 text-lg",
+    md: "w-20 h-20 text-xl",
+    lg: "w-28 h-28 text-2xl",
+  };
+
   return (
-    <Dialog open={isOpen} onOpenChange={onClose}>
+    <div className={`${sizeClasses[size]} rounded-sm bg-muted flex items-center justify-center overflow-hidden border border-border/50`}>
+      {imageUrl ? (
+        <img src={imageUrl} alt={name} className="w-full h-full object-cover" />
+      ) : (
+        <span className="font-display text-muted-foreground">{initials}</span>
+      )}
+    </div>
+  );
+}
+
+export function BoardMemberModal({ member, isOpen, onOpenChange }: BoardMemberModalProps) {
+  if (!member) return null;
+
+  return (
+    <Dialog open={isOpen} onOpenChange={onOpenChange}>
       <DialogContent className="sm:max-w-2xl p-0 overflow-hidden border-border/50 rounded-sm shadow-elegant-lg" data-testid="modal-board-member">
         <div className="relative">
           <div className="absolute inset-0 h-32 bg-gradient-to-br from-primary/20 via-primary/10 to-accent/10" />
@@ -49,14 +66,9 @@ export function BoardMemberModal({ member, isOpen, onClose }: BoardMemberModalPr
                 animate={{ scale: 1, opacity: 1 }}
                 transition={{ duration: 0.4, delay: 0.1 }}
               >
-                <Avatar className="w-28 h-28 border-4 border-background shadow-elegant rounded-sm">
-                  {member.imageUrl ? (
-                    <AvatarImage src={member.imageUrl} alt={member.name} className="object-cover" />
-                  ) : null}
-                  <AvatarFallback className="text-2xl font-display bg-muted text-muted-foreground rounded-sm">
-                    {initials}
-                  </AvatarFallback>
-                </Avatar>
+                <div className="border-4 border-background shadow-elegant rounded-sm overflow-hidden">
+                  <MemberAvatar name={member.name} imageUrl={member.imageUrl} size="lg" />
+                </div>
               </motion.div>
               
               <motion.div
@@ -156,17 +168,18 @@ export function BoardMemberCard({ member, onClick, index }: BoardMemberCardProps
     >
       <div className="flex flex-col items-center text-center">
         <div className="relative mb-5">
-          <Avatar className="w-20 h-20 border-2 border-border/50 group-hover:border-primary/30 transition-colors duration-500 rounded-sm">
+          <div className={`w-20 h-20 rounded-sm overflow-hidden border-2 transition-colors duration-500 ${isHovered ? 'border-primary/30' : 'border-border/50'}`}>
             {member.imageUrl ? (
-              <AvatarImage src={member.imageUrl} alt={member.name} className="object-cover" />
-            ) : null}
-            <AvatarFallback className="text-lg font-display bg-muted group-hover:bg-primary/10 text-muted-foreground group-hover:text-primary transition-colors duration-500 rounded-sm">
-              {initials}
-            </AvatarFallback>
-          </Avatar>
+              <img src={member.imageUrl} alt={member.name} className="w-full h-full object-cover" />
+            ) : (
+              <div className={`w-full h-full flex items-center justify-center text-lg font-display transition-colors duration-500 ${isHovered ? 'bg-primary/10 text-primary' : 'bg-muted text-muted-foreground'}`}>
+                {initials}
+              </div>
+            )}
+          </div>
           
           <motion.div
-            className="absolute inset-0 rounded-sm"
+            className="absolute inset-0 rounded-sm pointer-events-none"
             initial={false}
             animate={{
               boxShadow: isHovered 
