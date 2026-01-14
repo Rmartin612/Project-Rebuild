@@ -1,27 +1,87 @@
+import { useState, useEffect, useRef } from "react";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Layout } from "@/components/layout/Layout";
 import { Eye, Globe, Heart, Users, ArrowRight, ChevronRight } from "lucide-react";
 import { AnimatedSection, AnimatedContainer, AnimatedItem, slideInLeft, slideInRight, motion } from "@/hooks/use-scroll-animation";
+import { BoardMemberModal, BoardMemberCard, type BoardMember } from "@/components/BoardMemberModal";
 import heroImage from "@assets/stock_images/eye_doctor_optometri_f8a6ad70.jpg";
 import eyeglassesImage from "@assets/stock_images/eyeglasses_fitting_o_642058ff.jpg";
 
 const impactStats = [
-  { icon: Globe, value: "90%", label: "of blind people live in developing countries" },
-  { icon: Eye, value: "80%", label: "of cases are avoidable or treatable" },
-  { icon: Heart, value: "48%", label: "are blind because of cataracts" },
+  { icon: Globe, value: 90, suffix: "%", label: "of blind people live in developing countries" },
+  { icon: Eye, value: 80, suffix: "%", label: "of cases are avoidable or treatable" },
+  { icon: Heart, value: 48, suffix: "%", label: "are blind because of cataracts" },
 ];
 
-const boardMembers = [
-  "Renee Johnson",
-  "Ajay Manchandia MD",
-  "Colleen Martin RN",
-  "Meghan Martin",
-  "Ryan Martin",
-  "Charissa Nelson",
-  "Wendy Russell",
-  "Michelle Sheehy",
+const boardMembersData: BoardMember[] = [
+  {
+    id: "renee-johnson",
+    name: "Renee Johnson",
+    title: "Board Member",
+    bio: "Renee has been a dedicated advocate for global health initiatives for over two decades. Her passion for VER International stems from her family's long-standing commitment to serving communities in need. She brings extensive experience in nonprofit management and community outreach.",
+    joinedYear: 2016,
+    expertise: ["Nonprofit Management", "Community Outreach", "Strategic Planning"],
+  },
+  {
+    id: "ajay-manchandia",
+    name: "Ajay Manchandia MD",
+    title: "Medical Director",
+    credentials: "MD",
+    bio: "Dr. Manchandia is a board-certified ophthalmologist with over 15 years of experience in cataract surgery and comprehensive eye care. He has participated in numerous medical mission trips and brings invaluable clinical expertise to our organization.",
+    joinedYear: 2017,
+    expertise: ["Ophthalmology", "Cataract Surgery", "Medical Training"],
+  },
+  {
+    id: "colleen-martin",
+    name: "Colleen Martin RN",
+    title: "Nursing Director",
+    credentials: "RN, BSN",
+    bio: "Colleen is a registered nurse with extensive experience in surgical nursing and patient care. As a founding family member, she has been instrumental in developing our clinical protocols and training programs for local healthcare providers.",
+    joinedYear: 2015,
+    expertise: ["Surgical Nursing", "Patient Care", "Training & Education"],
+  },
+  {
+    id: "meghan-martin",
+    name: "Meghan Martin",
+    title: "Executive Director",
+    bio: "Meghan serves as the Executive Director of VER International, overseeing all organizational operations. Her background in international development and public health has been essential in expanding our reach and impact.",
+    joinedYear: 2015,
+    expertise: ["Executive Leadership", "International Development", "Public Health"],
+  },
+  {
+    id: "ryan-martin",
+    name: "Ryan Martin",
+    title: "Operations Director",
+    bio: "Ryan manages the logistical operations of VER International, ensuring that medical supplies, equipment, and volunteers are coordinated effectively for each mission trip. His attention to detail keeps our operations running smoothly.",
+    joinedYear: 2015,
+    expertise: ["Operations Management", "Logistics", "Supply Chain"],
+  },
+  {
+    id: "charissa-nelson",
+    name: "Charissa Nelson",
+    title: "Board Secretary",
+    bio: "Charissa serves as the Board Secretary, maintaining organizational records and supporting governance activities. Her dedication to transparency and accountability strengthens our organization's foundation.",
+    joinedYear: 2016,
+    expertise: ["Governance", "Administration", "Compliance"],
+  },
+  {
+    id: "wendy-russell",
+    name: "Wendy Russell",
+    title: "Community Liaison",
+    bio: "Wendy builds and maintains relationships with the communities we serve, ensuring our programs are culturally appropriate and responsive to local needs. Her work is essential to our community-driven approach.",
+    joinedYear: 2018,
+    expertise: ["Community Relations", "Cultural Liaison", "Program Development"],
+  },
+  {
+    id: "michelle-sheehy",
+    name: "Michelle Sheehy",
+    title: "Board Treasurer",
+    bio: "Michelle oversees the financial management of VER International, ensuring responsible stewardship of donated funds. Her financial expertise ensures that resources are maximized for patient care.",
+    joinedYear: 2015,
+    expertise: ["Financial Management", "Accounting", "Nonprofit Finance"],
+  },
 ];
 
 const founders = [
@@ -43,7 +103,70 @@ const founders = [
   "Cynthia A. Goodale",
 ];
 
+function AnimatedCounter({ value, suffix = "" }: { value: number; suffix?: string }) {
+  const [count, setCount] = useState(0);
+  const [hasStarted, setHasStarted] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting && !hasStarted) {
+          setHasStarted(true);
+        }
+      },
+      { threshold: 0.3 }
+    );
+
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+
+    return () => observer.disconnect();
+  }, [hasStarted]);
+
+  useEffect(() => {
+    if (!hasStarted) return;
+
+    const duration = 2000;
+    const steps = 60;
+    const stepValue = value / steps;
+    let current = 0;
+
+    const timer = setInterval(() => {
+      current += stepValue;
+      if (current >= value) {
+        setCount(value);
+        clearInterval(timer);
+      } else {
+        setCount(Math.floor(current));
+      }
+    }, duration / steps);
+
+    return () => clearInterval(timer);
+  }, [hasStarted, value]);
+
+  return (
+    <div ref={ref} className="heading-stately text-5xl md:text-6xl text-white">
+      {count}{suffix}
+    </div>
+  );
+}
+
 export default function Home() {
+  const [selectedMember, setSelectedMember] = useState<BoardMember | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleMemberClick = (member: BoardMember) => {
+    setSelectedMember(member);
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    setTimeout(() => setSelectedMember(null), 300);
+  };
+
   return (
     <Layout>
       <section 
@@ -208,14 +331,14 @@ export default function Home() {
           <AnimatedContainer className="grid md:grid-cols-3 gap-8">
             {impactStats.map((stat, index) => (
               <AnimatedItem key={index}>
-                <div className="glass rounded-sm p-10 text-center">
+                <div className="glass rounded-sm p-10 text-center h-full flex flex-col items-center justify-center min-h-[280px]">
                   <div className="inline-flex items-center justify-center w-14 h-14 rounded-sm bg-amber-500/20 border border-amber-500/30 mb-8">
                     <stat.icon className="w-6 h-6 text-amber-400" />
                   </div>
-                  <div className="heading-stately text-5xl md:text-6xl text-white mb-4" data-testid={`text-stat-value-${index}`}>
-                    {stat.value}
+                  <div data-testid={`text-stat-value-${index}`}>
+                    <AnimatedCounter value={stat.value} suffix={stat.suffix} />
                   </div>
-                  <p className="text-white/60 text-base" data-testid={`text-stat-label-${index}`}>
+                  <p className="text-white/60 text-base mt-4 max-w-[200px]" data-testid={`text-stat-label-${index}`}>
                     {stat.label}
                   </p>
                 </div>
@@ -258,29 +381,31 @@ export default function Home() {
           <AnimatedSection className="text-center mb-16">
             <div className="accent-line-center" />
             <span className="label-elegant mb-6 block">Leadership</span>
-            <h2 className="heading-stately text-4xl md:text-5xl text-foreground" data-testid="text-board-heading">
+            <h2 className="heading-stately text-4xl md:text-5xl text-foreground mb-4" data-testid="text-board-heading">
               Operational Board 2024-2025
             </h2>
+            <p className="text-muted-foreground text-sm">Click on a member to view their profile</p>
           </AnimatedSection>
 
           <AnimatedContainer className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {boardMembers.map((member, index) => (
-              <AnimatedItem key={index}>
-                <Card className="card-stately rounded-sm">
-                  <CardContent className="p-8 text-center">
-                    <div className="w-14 h-14 rounded-full bg-muted/80 flex items-center justify-center mx-auto mb-5 border border-border/50">
-                      <Users className="w-6 h-6 text-muted-foreground" />
-                    </div>
-                    <p className="font-medium text-foreground text-sm" data-testid={`text-board-member-${index}`}>
-                      {member}
-                    </p>
-                  </CardContent>
-                </Card>
+            {boardMembersData.map((member, index) => (
+              <AnimatedItem key={member.id}>
+                <BoardMemberCard 
+                  member={member} 
+                  onClick={() => handleMemberClick(member)}
+                  index={index}
+                />
               </AnimatedItem>
             ))}
           </AnimatedContainer>
         </div>
       </section>
+
+      <BoardMemberModal 
+        member={selectedMember}
+        isOpen={isModalOpen}
+        onClose={handleCloseModal}
+      />
 
       <section className="py-28 md:py-40 bg-section-warm dark:bg-muted/20 relative" data-testid="section-founders">
         <div className="max-w-6xl mx-auto px-6">
@@ -300,7 +425,7 @@ export default function Home() {
             {founders.map((founder, index) => (
               <AnimatedItem key={index}>
                 <div 
-                  className="text-center py-4 px-4 bg-background/50 dark:bg-card/50 rounded-sm border border-border/30"
+                  className="text-center py-4 px-4 bg-background/50 dark:bg-card/50 rounded-sm border border-border/30 transition-all duration-300 hover:border-border/50 hover:shadow-elegant"
                   data-testid={`text-founder-${index}`}
                 >
                   <p className="text-sm text-muted-foreground">{founder}</p>
