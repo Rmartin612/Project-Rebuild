@@ -1,0 +1,107 @@
+Act as a Senior Web Developer. I need you to rebuild the website for the nonprofit "VER International" (Volunteer Eye Resources International).
+
+### CRITICAL INSTRUCTION
+I am providing the EXACT TEXT CONTENT below. You must use this content VERBATIM. 
+- Do not summarize.
+- Do not change the wording.
+- Do not invent new text. 
+- Create a multi-page site (index.html, volunteer.html, donate.html) to house this content properly.
+
+---
+
+### **GLOBAL ELEMENTS**
+* **Organization Name:** Volunteer Eye Resources International (VER)
+* **Tagline:** "Bringing the Gift of Sight and Hope"
+* **Footer Text:** "Copyright © 2026 · All Rights Reserved · Volunteer Eye Resources International"
+* **Contact Email:** info@verinternational.org
+
+---
+
+### **PAGE 1: HOME PAGE (index.html)**
+
+**Hero Section Text:**
+"Volunteer Eye Resources International – Bringing the Gift of Sight and Hope"
+
+**Mission Statement (Prominent Section):**
+"Volunteer Eye Resources International was founded to improve and restore sight to individuals living in extreme poverty in developing nations by providing high quality, comprehensive, & community-driven eye care services, applying best practices in global health, at no cost."
+
+**Our Commitment (Text Block):**
+"Most of us take for granted our ability to see the world around us and our ease with which we move through our daily lives without restriction. But for those in developing countries, without access to medical treatment and optometry services, poor vision can dramatically impact an individual's ability to learn, work, and support themselves and their family."
+
+**Impact Stats (Use visual icons for these):**
+"According to the World Health Organization (WHO), blindness is an underlying cause of poverty and hunger in developing countries. WHO estimates that of the world's 39 million blind people:
+- 90% live in developing countries
+- 80% of the cases are avoidable or treatable
+- 48% are blind because of cataracts"
+
+**Our Focus (Text Block):**
+"We partner with communities in our host country to coordinate and provide adult and pediatric surgery, refractions, and eyeglasses. Our focus is not only on the provision of critically needed services but also to educate and train local providers for long-term sustainability. VER works with host communities to ensure all services are supported, coordinated, and provided in a culturally appropriate manner."
+
+**Operational Board 2024-2025 (List exactly):**
+- Renee Johnson
+- Ajay Manchandia MD
+- Colleen Martin RN
+- Meghan Martin
+- Ryan Martin
+- Charissa Nelson
+- Wendy Russell
+- Michelle Sheehy
+
+**Founders - In Memory of Robert G. Martin II ~ 2015 (List exactly):**
+- Mrs. Carol Martin
+- Meghan R. Martin
+- Robert G. Martin III
+- Colleen A. Martin
+- Ryan P. Martin
+- Rita and Robert G. Martin I
+- Rose Martin Schneider
+- Renee Martin Johnson
+- Rhonda Martin Slingsby
+- Ryan Martin
+- Randy Martin
+- Michelle Sheehy
+- Vilma and James Salvatore
+- Dr. Florentino Sotomayor Sánchez
+- Charissa Cannon Nelson
+- Cynthia A. Goodale
+
+---
+
+### **PAGE 2: ABOUT / INSPIRATION (about.html)**
+
+**Our Inspiration (The Story of Bob Martin):**
+"Volunteer Eye Resources International was founded by the friends, family, and larger international community of Robert Martin, a longtime advocate for vision services in South and Central America. 
+
+As a teenager, Bob made his first trip to Ecuador with Amigos de las Americas, initiating his lifelong passion for helping others to achieve higher levels of health care, including the miracle of sight. For all who knew and worked with Bob, his enthusiasm, dedication, and sense of humor were contagious to those around him."
+
+**Staff Expertise:**
+"VER core staff have decades of experience providing vision services to impoverished communities in Central and South America. We invite you to join us in bringing vision services to areas of greatest need."
+
+---
+
+### **PAGE 3: VOLUNTEER & NEEDS (volunteer.html)**
+
+**Join Us Header:**
+"We invite you to join us in bringing vision services to areas of greatest need."
+
+**Our Urgent Needs (Bullet Points):**
+"If you'd like to get involved, please visit our Contact Us page to get more information."
+- Donations to help restore & improve eyesight to those of the greatest need
+- Skilled volunteer clinical staff for:
+  - Ophthalmic surgery
+  - Optometry
+  - Pre-op
+  - Recovery room
+  - Eyeglasses fitting
+- Equipment and supplies
+
+---
+
+### **DESIGN & TECH INSTRUCTIONS**
+1.  **Structure:** Create a clean, modern navigation bar with links to Home, About, Volunteer, and a "Donate" button.
+2.  **Images:** Use placeholders (unsplash source) that represent eye care, medical volunteering, and South American landscapes.
+3.  **Framework:** Use **Tailwind CSS** for styling.
+4.  **Responsive:** Ensure the site works perfectly on mobile phones.
+5.  **Colors:** Use a color palette of clean Medical Blue, White, and a warm accent color (like Orange or Yellow) to represent "Hope."
+
+Please write the code for `index.html`, `about.html`, `volunteer.html`, and `style.css` (or tailwind setup).
