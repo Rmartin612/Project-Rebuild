@@ -175,6 +175,199 @@
   }
 }
 
+/* Premium Design Utilities */
+@layer utilities {
+  /* Glassmorphism card effect */
+  .glass {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+  }
+
+  .glass-dark {
+    background: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .glass-light {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+  }
+
+  /* Premium shadows */
+  .shadow-glow-primary {
+    box-shadow: 0 0 40px rgba(30, 64, 175, 0.25), 0 0 80px rgba(30, 64, 175, 0.1);
+  }
+
+  .shadow-glow-accent {
+    box-shadow: 0 0 40px rgba(245, 158, 11, 0.3), 0 0 80px rgba(245, 158, 11, 0.15);
+  }
+
+  .shadow-premium {
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.05);
+  }
+
+  .shadow-premium-lg {
+    box-shadow: 0 35px 60px -15px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.08);
+  }
+
+  /* Gradient text */
+  .text-gradient-primary {
+    background: linear-gradient(135deg, #1e40af 0%, #3b82f6 50%, #0ea5e9 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-gradient-accent {
+    background: linear-gradient(135deg, #f59e0b 0%, #fbbf24 50%, #fcd34d 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Premium gradients */
+  .bg-gradient-hero {
+    background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 40%, #1e40af 70%, #0c4a6e 100%);
+  }
+
+  .bg-gradient-hero-overlay {
+    background: linear-gradient(
+      180deg,
+      rgba(15, 23, 42, 0.85) 0%,
+      rgba(30, 58, 138, 0.7) 30%,
+      rgba(30, 64, 175, 0.6) 60%,
+      rgba(15, 23, 42, 0.9) 100%
+    );
+  }
+
+  .bg-gradient-section {
+    background: linear-gradient(180deg, hsl(var(--background)) 0%, hsl(210 40% 98%) 100%);
+  }
+
+  /* Ambient glow effects */
+  .glow-primary::after {
+    content: "";
+    position: absolute;
+    inset: 20%;
+    background: hsl(var(--primary) / 0.15);
+    filter: blur(60px);
+    z-index: -1;
+    border-radius: 50%;
+  }
+
+  .glow-accent::after {
+    content: "";
+    position: absolute;
+    inset: 20%;
+    background: hsl(var(--accent) / 0.2);
+    filter: blur(60px);
+    z-index: -1;
+    border-radius: 50%;
+  }
+
+  /* Premium button styles */
+  .btn-premium {
+    background: linear-gradient(135deg, #f59e0b 0%, #fbbf24 50%, #f59e0b 100%);
+    background-size: 200% 200%;
+    animation: gradient-shift 3s ease infinite;
+    box-shadow: 0 10px 30px rgba(245, 158, 11, 0.35), 0 0 0 1px rgba(255, 255, 255, 0.2) inset;
+    transition: all 0.3s ease;
+  }
+
+  .btn-premium:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 40px rgba(245, 158, 11, 0.45), 0 0 0 1px rgba(255, 255, 255, 0.3) inset;
+  }
+
+  /* Gradient shift animation */
+  @keyframes gradient-shift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+
+  /* Premium card hover */
+  .card-premium {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid hsl(var(--border) / 0.5);
+  }
+
+  .card-premium:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+    border-color: hsl(var(--primary) / 0.3);
+  }
+
+  /* Decorative blob */
+  .blob-decoration {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.5;
+    animation: blob-float 8s ease-in-out infinite;
+  }
+
+  @keyframes blob-float {
+    0%, 100% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-20px) scale(1.05); }
+  }
+
+  /* Section divider */
+  .section-divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, hsl(var(--border)) 50%, transparent 100%);
+  }
+
+  /* Premium typography */
+  .heading-premium {
+    letter-spacing: -0.02em;
+    font-weight: 700;
+  }
+
+  .subheading-premium {
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 0.75rem;
+  }
+
+  /* Animated underline */
+  .animated-underline {
+    position: relative;
+  }
+
+  .animated-underline::after {
+    content: "";
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, hsl(var(--accent)), hsl(var(--primary)));
+    transition: width 0.3s ease;
+  }
+
+  .animated-underline:hover::after {
+    width: 100%;
+  }
+
+  /* Noise texture overlay */
+  .noise-overlay::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    opacity: 0.03;
+    pointer-events: none;
+    z-index: 1;
+  }
+}
+
 /**
  * Using the elevate system.
  * Automatic contrast adjustment.
