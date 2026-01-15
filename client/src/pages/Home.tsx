@@ -6,6 +6,7 @@ import { Layout } from "@/components/layout/Layout";
 import { Eye, Globe, Heart, Users, ArrowRight, ChevronRight } from "lucide-react";
 import { AnimatedSection, AnimatedContainer, AnimatedItem, slideInLeft, slideInRight, motion } from "@/hooks/use-scroll-animation";
 import { BoardMemberModal, BoardMemberCard, type BoardMember } from "@/components/BoardMemberModal";
+import { FloatingElement, TiltCard, TextReveal, MagneticButton } from "@/components/ui/interactive-effects";
 import heroImage from "@assets/stock_images/eye_doctor_optometri_f8a6ad70.jpg";
 import eyeglassesImage from "@assets/stock_images/eyeglasses_fitting_o_642058ff.jpg";
 
@@ -185,6 +186,12 @@ export default function Home() {
         />
         <div className="absolute inset-0 bg-gradient-hero-overlay" />
         
+        <FloatingElement className="top-1/4 left-[10%]" size="lg" variant="ring" delay={0} duration={8} />
+        <FloatingElement className="top-1/3 right-[15%]" size="md" variant="circle" delay={2} duration={7} />
+        <FloatingElement className="bottom-1/4 left-[20%]" size="sm" variant="dot" delay={1} duration={6} />
+        <FloatingElement className="bottom-1/3 right-[10%]" size="lg" variant="ring" delay={3} duration={9} />
+        <FloatingElement className="top-1/2 left-[5%]" size="sm" variant="circle" delay={4} duration={5} />
+        
         <div className="relative z-10 max-w-5xl mx-auto px-6 text-center py-32">
           <motion.div
             initial={{ opacity: 0 }}
@@ -231,17 +238,21 @@ export default function Home() {
             transition={{ duration: 0.6, delay: 1 }}
             className="flex flex-col sm:flex-row gap-5 justify-center"
           >
-            <Link href="/donate">
-              <Button size="lg" className="btn-stately text-white font-medium px-10 py-6 text-base rounded-sm" data-testid="button-hero-donate">
-                Make a Donation
-                <ArrowRight className="w-4 h-4 ml-3" />
-              </Button>
-            </Link>
-            <Link href="/about">
-              <Button size="lg" variant="outline" className="glass text-white border-white/15 hover:bg-white/10 px-10 py-6 text-base rounded-sm" data-testid="button-hero-learn">
-                Our Story
-              </Button>
-            </Link>
+            <MagneticButton strength={0.2}>
+              <Link href="/donate">
+                <Button size="lg" className="btn-stately text-white font-medium px-10 py-6 text-base rounded-sm" data-testid="button-hero-donate">
+                  Make a Donation
+                  <ArrowRight className="w-4 h-4 ml-3" />
+                </Button>
+              </Link>
+            </MagneticButton>
+            <MagneticButton strength={0.2}>
+              <Link href="/about">
+                <Button size="lg" variant="outline" className="glass text-white border-white/15 px-10 py-6 text-base rounded-sm" data-testid="button-hero-learn">
+                  Our Story
+                </Button>
+              </Link>
+            </MagneticButton>
           </motion.div>
         </div>
 
@@ -337,17 +348,19 @@ export default function Home() {
           <AnimatedContainer className="grid md:grid-cols-3 gap-8">
             {impactStats.map((stat, index) => (
               <AnimatedItem key={index}>
-                <div className="glass rounded-sm p-10 text-center h-full flex flex-col items-center justify-center min-h-[280px]">
-                  <div className="inline-flex items-center justify-center w-14 h-14 rounded-sm bg-amber-500/20 border border-amber-500/30 mb-8">
-                    <stat.icon className="w-6 h-6 text-amber-400" />
+                <TiltCard tiltAmount={6}>
+                  <div className="glass rounded-sm p-10 text-center h-full flex flex-col items-center justify-center min-h-[280px]">
+                    <div className="inline-flex items-center justify-center w-14 h-14 rounded-sm bg-amber-500/20 border border-amber-500/30 mb-8">
+                      <stat.icon className="w-6 h-6 text-amber-400" />
+                    </div>
+                    <div data-testid={`text-stat-value-${index}`}>
+                      <AnimatedCounter value={stat.value} suffix={stat.suffix} />
+                    </div>
+                    <p className="text-white/60 text-base mt-4 max-w-[200px]" data-testid={`text-stat-label-${index}`}>
+                      {stat.label}
+                    </p>
                   </div>
-                  <div data-testid={`text-stat-value-${index}`}>
-                    <AnimatedCounter value={stat.value} suffix={stat.suffix} />
-                  </div>
-                  <p className="text-white/60 text-base mt-4 max-w-[200px]" data-testid={`text-stat-label-${index}`}>
-                    {stat.label}
-                  </p>
-                </div>
+                </TiltCard>
               </AnimatedItem>
             ))}
           </AnimatedContainer>

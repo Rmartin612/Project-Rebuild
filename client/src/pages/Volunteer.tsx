@@ -14,6 +14,7 @@ import {
   Mail
 } from "lucide-react";
 import { AnimatedSection, AnimatedContainer, AnimatedItem, motion } from "@/hooks/use-scroll-animation";
+import { FloatingElement, TiltCard, MagneticButton } from "@/components/ui/interactive-effects";
 import volunteerImage from "@assets/stock_images/medical_volunteers_h_8e4c4dea.jpg";
 
 const volunteerNeeds = [
@@ -61,6 +62,10 @@ export default function Volunteer() {
           style={{ backgroundImage: `url(${volunteerImage})` }}
         />
         <div className="absolute inset-0 bg-gradient-hero-overlay" />
+        
+        <FloatingElement className="top-1/4 left-[10%]" size="lg" variant="ring" delay={0} duration={8} />
+        <FloatingElement className="top-1/3 right-[15%]" size="md" variant="circle" delay={2} duration={7} />
+        <FloatingElement className="bottom-1/3 left-[18%]" size="sm" variant="dot" delay={1} duration={6} />
         
         <div className="relative z-10 max-w-4xl mx-auto px-6 text-center py-32">
           <motion.div

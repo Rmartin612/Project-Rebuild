@@ -1,5 +1,6 @@
 import { Navigation } from "./Navigation";
 import { Footer } from "./Footer";
+import { ScrollProgress } from "@/components/ui/interactive-effects";
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -8,6 +9,7 @@ interface LayoutProps {
 export function Layout({ children }: LayoutProps) {
   return (
     <div className="min-h-screen flex flex-col bg-background">
+      <ScrollProgress />
       <Navigation />
       <main className="flex-1">
         {children}

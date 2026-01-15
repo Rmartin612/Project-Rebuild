@@ -3,9 +3,12 @@ import { Button } from "@/components/ui/button";
 import { Layout } from "@/components/layout/Layout";
 import { ArrowRight, Heart, Users } from "lucide-react";
 import { AnimatedSection, slideInLeft, slideInRight, motion } from "@/hooks/use-scroll-animation";
+import { FloatingElement, TiltCard } from "@/components/ui/interactive-effects";
+import { ImageComparison } from "@/components/ui/image-comparison";
 import volunteerImage from "@assets/stock_images/medical_volunteers_h_8e4c4dea.jpg";
 import portraitImage from "@assets/stock_images/senior_man_portrait__b89dbb31.jpg";
 import landscapeImage from "@assets/stock_images/south_america_ecuado_dd8ca2e1.jpg";
+import eyeglassesImage from "@assets/stock_images/eyeglasses_fitting_o_642058ff.jpg";
 
 export default function About() {
   return (
@@ -19,6 +22,10 @@ export default function About() {
           style={{ backgroundImage: `url(${landscapeImage})` }}
         />
         <div className="absolute inset-0 bg-gradient-hero-overlay" />
+        
+        <FloatingElement className="top-1/4 left-[8%]" size="lg" variant="ring" delay={0} duration={8} />
+        <FloatingElement className="top-1/3 right-[12%]" size="md" variant="circle" delay={2} duration={7} />
+        <FloatingElement className="bottom-1/4 right-[18%]" size="sm" variant="dot" delay={1} duration={6} />
         
         <div className="relative z-10 max-w-4xl mx-auto px-6 text-center py-32">
           <motion.div
@@ -65,16 +72,18 @@ export default function About() {
         <div className="max-w-6xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-20 items-center">
             <AnimatedSection variants={slideInLeft} className="relative order-2 lg:order-1">
-              <div className="relative">
-                <img 
-                  src={portraitImage} 
-                  alt="Humanitarian volunteer" 
-                  className="rounded-sm image-elegant w-full object-cover aspect-[3/4]"
-                />
-                <div className="absolute -bottom-6 -right-6 bg-gradient-to-br from-amber-500 to-amber-600 p-5 rounded-sm shadow-elegant">
-                  <Heart className="w-7 h-7 text-white" />
+              <TiltCard tiltAmount={5}>
+                <div className="relative image-zoom rounded-sm">
+                  <img 
+                    src={portraitImage} 
+                    alt="Humanitarian volunteer" 
+                    className="rounded-sm image-elegant w-full object-cover aspect-[3/4]"
+                  />
+                  <div className="absolute -bottom-6 -right-6 bg-gradient-to-br from-amber-500 to-amber-600 p-5 rounded-sm shadow-elegant pulse-glow">
+                    <Heart className="w-7 h-7 text-white" />
+                  </div>
                 </div>
-              </div>
+              </TiltCard>
             </AnimatedSection>
 
             <AnimatedSection variants={slideInRight} className="space-y-8 order-1 lg:order-2">
@@ -97,6 +106,33 @@ export default function About() {
               </p>
             </AnimatedSection>
           </div>
+        </div>
+      </section>
+
+      <div className="divider-elegant mx-auto max-w-xl" />
+
+      <section className="py-28 md:py-40 relative bg-section-cool dark:bg-muted/10" data-testid="section-impact-comparison">
+        <div className="max-w-4xl mx-auto px-6">
+          <AnimatedSection className="text-center mb-16">
+            <div className="accent-line-center" />
+            <span className="label-elegant mb-6 block">See the Difference</span>
+            <h2 className="heading-stately text-4xl md:text-5xl text-foreground mb-6" data-testid="text-impact-comparison-heading">
+              The Gift of Sight
+            </h2>
+            <p className="text-refined text-lg text-muted-foreground max-w-2xl mx-auto">
+              Drag the slider to see how our work transforms lives by restoring vision to those who need it most.
+            </p>
+          </AnimatedSection>
+
+          <AnimatedSection delay={0.15}>
+            <ImageComparison
+              beforeImage={portraitImage}
+              afterImage={eyeglassesImage}
+              beforeLabel="Before"
+              afterLabel="After Care"
+              className="aspect-[16/10] max-w-3xl mx-auto shadow-elegant-lg"
+            />
+          </AnimatedSection>
         </div>
       </section>
 
