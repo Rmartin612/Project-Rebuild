@@ -32,66 +32,66 @@ const boardMembersData: BoardMember[] = [
   {
     id: "renee-johnson",
     name: "Renee Johnson",
-    title: "Board Member",
-    bio: "Renee has been a dedicated advocate for global health initiatives for over two decades. Her passion for VER International stems from her family's long-standing commitment to serving communities in need. She brings extensive experience in nonprofit management and community outreach.",
+    title: "Fundraising Chair",
+    bio: "Renee's experience with travel and service started with her first trips to Japan and Denmark with 4-H. Her older brother, Robert G. Martin II inspired her to go out in the world and serve others. She completed her Master's Degree at IIT in Financial Engineering and ran her business for 25 years at the Chicago Mercantile Exchange. Later in life, she has had time to pursue her passion for helping and empowering underserved children and their families in Nicaragua to reach their full potential. She is also proud to be the mother of 3 amazing young men that are also dedicating their lives to serving others. VER is very near and dear to her heart, in honor of her brother's legacy. \"The eyes are the windows to the soul\" is an expression that is often used to describe the deep connection one feels when looking into another's eyes. Renee is committed to aiding VER in improving and restoring sight to individuals living in extreme poverty.",
     joinedYear: 2016,
     expertise: ["Nonprofit Management", "Community Outreach", "Strategic Planning"],
   },
   {
     id: "ajay-manchandia",
     name: "Ajay Manchandia MD",
-    title: "Medical Director",
+    title: "Executive Director, Medical Director",
     credentials: "MD",
-    bio: "Dr. Manchandia is a board-certified ophthalmologist with over 15 years of experience in cataract surgery and comprehensive eye care. He has participated in numerous medical mission trips and brings invaluable clinical expertise to our organization.",
+    bio: "Dr. Ajay Manchandia graduated from UC Berkeley with a degree in Molecular Biology and continued his training in Philadelphia, completing his ophthalmology residency at Temple University. He then completed his fellowship in pediatric ophthalmology and strabismus at the prestigious Jules Stein Eye Institute, UCLA. He is passionate about supporting underserved populations, having organized several mission trips as a resident, and having led surgical mission trips with Volunteer Eye Resources International since 2017. As a VER International board member, he hopes to continue Bob Martin's legacy to provide adult and pediatric eye and surgical care to underserved communities and to educate and train local providers for long term sustainability.",
     joinedYear: 2017,
     expertise: ["Ophthalmology", "Cataract Surgery", "Medical Training"],
   },
   {
     id: "colleen-martin",
     name: "Colleen Martin RN",
-    title: "Nursing Director",
+    title: "Surgical Project Manager",
     credentials: "RN, BSN",
-    bio: "Colleen is a registered nurse with extensive experience in surgical nursing and patient care. As a founding family member, she has been instrumental in developing our clinical protocols and training programs for local healthcare providers.",
+    bio: "Colleen grew up admiring her father, Robert G. Martin II, for his passion for providing assistance to those in need. Currently, she is a board member for VER International. She received her Master's degree in Nursing from Johns Hopkins University and has worked as an emergency department R.N. for 6 years. She furthered her education at Vanderbilt University and recently graduated from their nurse practitioner program. She is dual-certified as a Family and Emergency Nurse Practitioner. She has participated in multiple volunteer trips over the years and is eager to continue on in her father's legacy.",
     joinedYear: 2015,
     expertise: ["Surgical Nursing", "Patient Care", "Training & Education"],
   },
   {
     id: "meghan-martin",
     name: "Meghan Martin",
-    title: "Executive Director",
-    bio: "Meghan serves as the Executive Director of VER International, overseeing all organizational operations. Her background in international development and public health has been essential in expanding our reach and impact.",
+    title: "Board Chair, Secretary",
+    bio: "Meghan's passion for volunteering and helping others came from her dad, Robert G. Martin II, and she serves as a board member for VER International to honor his legacy and bring the gift of sight to underserved communities. She graduated with a bachelor's degree in Global Studies from University of Illinois at Urbana-Champaign and received her Master's Degree in Industrial and Labor Relations from Cornell University. Meghan works in consulting; advising technology companies on their people strategy. Meghan has joined VER International on trips to Nicaragua and Peru and has led additional volunteer trips to Panama with Global Brigades. Meghan resides in Chicago with her husband, Mark, and French bulldog, Gus.",
     joinedYear: 2015,
     expertise: ["Executive Leadership", "International Development", "Public Health"],
   },
   {
     id: "ryan-martin",
     name: "Ryan Martin",
-    title: "Operations Director",
-    bio: "Ryan manages the logistical operations of VER International, ensuring that medical supplies, equipment, and volunteers are coordinated effectively for each mission trip. His attention to detail keeps our operations running smoothly.",
+    title: "Vision Screening Assistant Project Manager",
+    bio: "Ryan grew up hearing about service trips from his father and how desperately individuals in Latin and South America need ongoing eye care. It was his trip to Guatemala with his father in 5th grade that convinced him of this mission. He now serves as a board member for VER International, since 2015. Ryan graduated from Marquette University, majoring in Finance and International Business. Ryan has gone on service trips with VER to Nicaragua and Peru, thus far.",
     joinedYear: 2015,
     expertise: ["Operations Management", "Logistics", "Supply Chain"],
   },
   {
     id: "charissa-nelson",
     name: "Charissa Nelson",
-    title: "Board Secretary",
-    bio: "Charissa serves as the Board Secretary, maintaining organizational records and supporting governance activities. Her dedication to transparency and accountability strengthens our organization's foundation.",
+    title: "Programs Manager",
+    bio: "Charissa joins the VER board after numerous volunteer service trips throughout her life to Latin America with health and environmental non-profit foundations. Her love for Spanish and Latin America began in school and was accelerated with her 7 summers of volunteer experience in health and community development projects in rural Central and South America with Amigos de las Americas during high school and college. Charissa and Bob directed a tuberculosis detection project in the Amazon region of Ecuador with Amigos. She has volunteered extensively in Central America with environmental groups, in South America with vision projects, and does translation for several international non-profits. Charissa has a BA in Latin American Studies from UC Berkeley and an MA in Teaching from Pacific University. She is currently teaching in a Spanish Immersion elementary School in Oregon.",
     joinedYear: 2016,
     expertise: ["Governance", "Administration", "Compliance"],
   },
   {
     id: "wendy-russell",
     name: "Wendy Russell",
-    title: "Community Liaison",
-    bio: "Wendy builds and maintains relationships with the communities we serve, ensuring our programs are culturally appropriate and responsive to local needs. Her work is essential to our community-driven approach.",
+    title: "Board Treasurer",
+    bio: "Wendy joins the board after volunteering with VER on 2 service trips to Peru September 2019 and September 2023. Wendy's passion for Spanish language and Latin American culture began with studying Spanish from age 12 and participating in a student exchange program in Puerto Vallarta, Mexico her senior year of high school. After graduation she returned to live and work in Mexico for 8 years. Upon returning to the States, Wendy pursued her university degree, followed by a 20-year career in import/export of wood products based in Eugene, OR. During the 20 years, she traveled to, and worked with, locals in Honduras, Nicaragua, and El Salvador. Her goal was to volunteer internationally once retired. Fortunately, she was introduced to VER in 2019 and participated in her first service trip as a volunteer interpreter in Peru. Most recently she volunteered in 2023 for a 19-day service trip covering both surgical and vision screening projects. Wendy joins the board with a passion for culture, communication, serving, and genuinely caring for others. She holds a BA in International Business from Linfield University and currently works for Levi Strauss & Co.",
     joinedYear: 2018,
     expertise: ["Community Relations", "Cultural Liaison", "Program Development"],
   },
   {
     id: "michelle-sheehy",
     name: "Michelle Sheehy",
-    title: "Board Treasurer",
-    bio: "Michelle oversees the financial management of VER International, ensuring responsible stewardship of donated funds. Her financial expertise ensures that resources are maximized for patient care.",
+    title: "Vision Screening Project Manager",
+    bio: "At an early age, Michelle's family taught her the importance of giving back to others. At Mother McAuley Liberal Arts High School, she was taught the importance of having compassion towards the needs of others. When she was a high school junior, she was inspired by her cousin Bob, who introduced her to Amigos de las Americas. Thanks to Bob, she had the honor of participating in her first medical mission trip during Amigo's initial visit to Oaxaca, Mexico. Michelle immediately developed a deep passion for charitable work and for Latin America. For over fifteen years she has volunteered weekly at a hospital in Chicago devoted to serving chronically ill children. She has continued to participate as a volunteer on mission trips to Ecuador, Peru, and Nicaragua, and looks forward to volunteering with VER International to bring the gift of vision to many more children and adults in Latin America.",
     joinedYear: 2015,
     expertise: ["Financial Management", "Accounting", "Nonprofit Finance"],
   },
@@ -433,7 +433,7 @@ export default function Home() {
             <div className="accent-line-center" />
             <span className="label-elegant mb-6 block">Leadership</span>
             <h2 className="heading-stately text-4xl md:text-5xl text-foreground mb-4" data-testid="text-board-heading">
-              Operational Board 2024-2025
+              Operational Board 2026-2027
             </h2>
             <p className="text-muted-foreground text-sm">Click on a member to view their profile</p>
           </AnimatedSection>
