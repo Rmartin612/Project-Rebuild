@@ -25,6 +25,13 @@ export function Navigation() {
 
   const isActive = (path: string) => location === path;
 
+  const handleLinkClick = () => {
+    setIsMenuOpen(false);
+    setTimeout(() => {
+      window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+    }, 0);
+  };
+
   return (
     <nav 
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
@@ -36,10 +43,10 @@ export function Navigation() {
     >
       <div className="max-w-6xl mx-auto px-6">
         <div className="flex items-center justify-between h-16 md:h-20">
-          <Link href="/" className="flex items-center" data-testid="link-logo">
-            <img 
-              src={logoImage} 
-              alt="VER International - Volunteer Eye Resources" 
+          <Link href="/" onClick={handleLinkClick} className="flex items-center" data-testid="link-logo">
+            <img
+              src={logoImage}
+              alt="VER International - Volunteer Eye Resources"
               className="h-12 md:h-14 w-auto object-contain"
             />
           </Link>
@@ -49,28 +56,29 @@ export function Navigation() {
               <Link
                 key={link.href}
                 href={link.href}
+                onClick={handleLinkClick}
                 className={`text-sm font-medium transition-all duration-300 relative ${
                   isActive(link.href)
                     ? isScrolled ? "text-foreground" : "text-white"
-                    : isScrolled 
-                      ? "text-muted-foreground hover:text-foreground" 
+                    : isScrolled
+                      ? "text-muted-foreground hover:text-foreground"
                       : "text-white/60 hover:text-white"
                 }`}
                 data-testid={`link-nav-${link.label.toLowerCase()}`}
               >
                 {link.label}
                 <span className={`absolute -bottom-1 left-0 h-px transition-all duration-300 ${
-                  isActive(link.href) 
-                    ? "w-full bg-accent" 
+                  isActive(link.href)
+                    ? "w-full bg-accent"
                     : "w-0"
                 }`} />
               </Link>
             ))}
-            <Link href="/donate">
-              <Button 
+            <Link href="/donate" onClick={handleLinkClick}>
+              <Button
                 className={`rounded-sm font-medium px-6 transition-all duration-500 ${
-                  isScrolled 
-                    ? "btn-stately text-white" 
+                  isScrolled
+                    ? "btn-stately text-white"
                     : "bg-white/10 border border-white/20 text-white hover:bg-white/15"
                 }`}
                 data-testid="button-donate-nav"
@@ -111,21 +119,21 @@ export function Navigation() {
                   href={link.href}
                   className={`text-sm font-medium py-3 px-4 rounded-sm transition-all ${
                     isActive(link.href)
-                      ? isScrolled 
-                        ? "text-foreground bg-muted" 
+                      ? isScrolled
+                        ? "text-foreground bg-muted"
                         : "text-white bg-white/10"
-                      : isScrolled 
-                        ? "text-muted-foreground hover:bg-muted" 
+                      : isScrolled
+                        ? "text-muted-foreground hover:bg-muted"
                         : "text-white/60 hover:text-white hover:bg-white/10"
                   }`}
-                  onClick={() => setIsMenuOpen(false)}
+                  onClick={handleLinkClick}
                   data-testid={`link-mobile-${link.label.toLowerCase()}`}
                 >
                   {link.label}
                 </Link>
               ))}
               <div className="pt-4 px-4">
-                <Link href="/donate" onClick={() => setIsMenuOpen(false)}>
+                <Link href="/donate" onClick={handleLinkClick}>
                   <Button className="w-full btn-stately text-white font-medium py-5 rounded-sm" data-testid="button-donate-mobile">
                     <Heart className="w-4 h-4 mr-2" />
                     Donate Now
