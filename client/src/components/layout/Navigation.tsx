@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Heart } from "lucide-react";
-import logoImage from "@assets/generated_images/vision_health_nonprofit_eye_logo.png";
+import logoImage from "@assets/verlogo-5_1768437071312.png";
 
 export function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -36,24 +36,12 @@ export function Navigation() {
     >
       <div className="max-w-6xl mx-auto px-6">
         <div className="flex items-center justify-between h-16 md:h-20">
-          <Link href="/" className="flex items-center gap-3" data-testid="link-logo">
+          <Link href="/" className="flex items-center" data-testid="link-logo">
             <img 
               src={logoImage} 
-              alt="VER International Logo" 
-              className="w-10 h-10 rounded-sm object-contain"
+              alt="VER International - Volunteer Eye Resources" 
+              className="h-12 md:h-14 w-auto object-contain"
             />
-            <div className="flex flex-col">
-              <span className={`font-semibold text-sm tracking-wide transition-colors duration-500 ${
-                isScrolled ? "text-foreground" : "text-white"
-              }`}>
-                VER International
-              </span>
-              <span className={`text-[10px] tracking-[0.15em] uppercase hidden sm:block transition-colors duration-500 ${
-                isScrolled ? "text-muted-foreground" : "text-white/60"
-              }`}>
-                Bringing the Gift of Sight
-              </span>
-            </div>
           </Link>
 
           <div className="hidden md:flex items-center gap-10">

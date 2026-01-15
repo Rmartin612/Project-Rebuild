@@ -1,6 +1,6 @@
 import { Link } from "wouter";
 import { Mail, Heart, ArrowUpRight } from "lucide-react";
-import logoImage from "@assets/generated_images/vision_health_nonprofit_eye_logo.png";
+import logoImage from "@assets/verlogo-5_1768437071312.png";
 
 export function Footer() {
   return (
@@ -11,16 +11,12 @@ export function Footer() {
         <div className="max-w-6xl mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-8">
             <div className="md:col-span-5 space-y-6">
-              <div className="flex items-center gap-3">
+              <div className="flex items-center">
                 <img 
                   src={logoImage} 
-                  alt="VER International Logo" 
-                  className="w-11 h-11 rounded-sm object-contain"
+                  alt="VER International - Volunteer Eye Resources" 
+                  className="h-16 w-auto object-contain"
                 />
-                <div>
-                  <h3 className="font-semibold text-base text-white tracking-wide">VER International</h3>
-                  <p className="text-xs text-slate-400 tracking-[0.1em] uppercase">Bringing the Gift of Sight</p>
-                </div>
               </div>
               <p className="text-slate-400 text-sm leading-relaxed max-w-md">
                 Volunteer Eye Resources International restores sight to individuals living in extreme poverty in developing nations, providing high-quality, community-driven eye care at no cost.
