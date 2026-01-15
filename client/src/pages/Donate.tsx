@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Heart, DollarSign, CreditCard, Mail, CheckCircle } from "lucide-react";
 import { AnimatedSection, AnimatedContainer, AnimatedItem, slideInLeft, slideInRight, motion } from "@/hooks/use-scroll-animation";
-import { FloatingElement, TiltCard, MagneticButton } from "@/components/ui/interactive-effects";
+import { TiltCard, MagneticButton } from "@/components/ui/interactive-effects";
 
 const donationImpacts = [
   { amount: "$25", impact: "Provides eyeglasses to a child in need" },
@@ -25,10 +25,6 @@ export default function Donate() {
       <section className="relative py-32 md:py-44 overflow-hidden" data-testid="section-donate-hero">
         <div className="absolute inset-0 bg-gradient-hero" />
         
-        <FloatingElement className="top-1/4 left-[8%]" size="lg" variant="ring" delay={0} duration={8} />
-        <FloatingElement className="top-1/3 right-[12%]" size="md" variant="circle" delay={2} duration={7} />
-        <FloatingElement className="bottom-1/4 right-[20%]" size="sm" variant="dot" delay={1} duration={6} />
-        <FloatingElement className="bottom-1/3 left-[15%]" size="lg" variant="ring" delay={3} duration={9} />
         
         <div className="relative max-w-4xl mx-auto px-6 text-center">
           <motion.div

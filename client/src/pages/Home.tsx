@@ -6,9 +6,21 @@ import { Layout } from "@/components/layout/Layout";
 import { Eye, Globe, Heart, Users, ArrowRight, ChevronRight } from "lucide-react";
 import { AnimatedSection, AnimatedContainer, AnimatedItem, slideInLeft, slideInRight, motion } from "@/hooks/use-scroll-animation";
 import { BoardMemberModal, BoardMemberCard, type BoardMember } from "@/components/BoardMemberModal";
-import { FloatingElement, TiltCard, TextReveal, MagneticButton } from "@/components/ui/interactive-effects";
+import { TiltCard, TextReveal, MagneticButton } from "@/components/ui/interactive-effects";
+import { KenBurnsCarousel } from "@/components/ui/ken-burns-carousel";
 import heroImage from "@assets/stock_images/eye_doctor_optometri_f8a6ad70.jpg";
 import eyeglassesImage from "@assets/stock_images/eyeglasses_fitting_o_642058ff.jpg";
+import volunteerImage from "@assets/stock_images/medical_volunteers_h_8e4c4dea.jpg";
+import landscapeImage from "@assets/stock_images/south_america_ecuado_dd8ca2e1.jpg";
+import portraitImage from "@assets/stock_images/senior_man_portrait__b89dbb31.jpg";
+
+const carouselImages = [
+  { src: heroImage, alt: "Eye doctor providing care" },
+  { src: eyeglassesImage, alt: "Patient receiving eyeglasses" },
+  { src: volunteerImage, alt: "Medical volunteers helping community" },
+  { src: landscapeImage, alt: "Communities we serve in South America" },
+  { src: portraitImage, alt: "Patient with restored vision" },
+];
 
 const impactStats = [
   { icon: Globe, value: 90, suffix: "%", label: "of blind people live in developing countries" },
@@ -186,11 +198,6 @@ export default function Home() {
         />
         <div className="absolute inset-0 bg-gradient-hero-overlay" />
         
-        <FloatingElement className="top-1/4 left-[10%]" size="lg" variant="ring" delay={0} duration={8} />
-        <FloatingElement className="top-1/3 right-[15%]" size="md" variant="circle" delay={2} duration={7} />
-        <FloatingElement className="bottom-1/4 left-[20%]" size="sm" variant="dot" delay={1} duration={6} />
-        <FloatingElement className="bottom-1/3 right-[10%]" size="lg" variant="ring" delay={3} duration={9} />
-        <FloatingElement className="top-1/2 left-[5%]" size="sm" variant="circle" delay={4} duration={5} />
         
         <div className="relative z-10 max-w-5xl mx-auto px-6 text-center py-32">
           <motion.div
@@ -330,6 +337,31 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <section className="py-28 md:py-40 relative" data-testid="section-gallery">
+        <div className="max-w-6xl mx-auto px-6">
+          <AnimatedSection className="text-center mb-16">
+            <div className="accent-line-center" />
+            <span className="label-elegant mb-6 block">Our Work in Action</span>
+            <h2 className="heading-stately text-4xl md:text-5xl text-foreground mb-6" data-testid="text-gallery-heading">
+              Moments of Impact
+            </h2>
+            <p className="text-refined text-lg text-muted-foreground max-w-2xl mx-auto">
+              Witness the transformative power of sight restoration across the communities we serve.
+            </p>
+          </AnimatedSection>
+
+          <AnimatedSection delay={0.15}>
+            <KenBurnsCarousel
+              images={carouselImages}
+              interval={7000}
+              className="aspect-[21/9] rounded-sm shadow-elegant-lg"
+            />
+          </AnimatedSection>
+        </div>
+      </section>
+
+      <div className="divider-elegant mx-auto max-w-xl" />
 
       <section className="py-28 md:py-40 relative overflow-hidden" data-testid="section-impact">
         <div className="absolute inset-0 bg-gradient-hero" />

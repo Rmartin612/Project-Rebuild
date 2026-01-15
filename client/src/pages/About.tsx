@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Layout } from "@/components/layout/Layout";
 import { ArrowRight, Heart, Users } from "lucide-react";
 import { AnimatedSection, slideInLeft, slideInRight, motion } from "@/hooks/use-scroll-animation";
-import { FloatingElement, TiltCard } from "@/components/ui/interactive-effects";
+import { TiltCard } from "@/components/ui/interactive-effects";
 import { ImageComparison } from "@/components/ui/image-comparison";
 import volunteerImage from "@assets/stock_images/medical_volunteers_h_8e4c4dea.jpg";
 import portraitImage from "@assets/stock_images/senior_man_portrait__b89dbb31.jpg";
@@ -23,9 +23,6 @@ export default function About() {
         />
         <div className="absolute inset-0 bg-gradient-hero-overlay" />
         
-        <FloatingElement className="top-1/4 left-[8%]" size="lg" variant="ring" delay={0} duration={8} />
-        <FloatingElement className="top-1/3 right-[12%]" size="md" variant="circle" delay={2} duration={7} />
-        <FloatingElement className="bottom-1/4 right-[18%]" size="sm" variant="dot" delay={1} duration={6} />
         
         <div className="relative z-10 max-w-4xl mx-auto px-6 text-center py-32">
           <motion.div
