@@ -35,6 +35,7 @@ export default defineConfig({
   server: {
     fs: {
       strict: true,
+      allow: [".."],
       deny: ["**/.*"],
     },
   },
