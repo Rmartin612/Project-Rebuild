@@ -22,6 +22,18 @@ import charissaNelsonImage from "@assets/board/charissa-nelson.jpg";
 import wendyRussellImage from "@assets/board/wendy-russell.jpg";
 import michelleSheehyImage from "@assets/board/michelle-sheehy.jpg";
 
+// Debug: Check what the imports actually contain
+console.log('Board member image imports:', {
+  reneeJohnsonImage,
+  ajayManchandiaImage,
+  colleenMartinImage,
+  meghanMartinImage,
+  ryanMartinImage,
+  charissaNelsonImage,
+  wendyRussellImage,
+  michelleSheehyImage
+});
+
 const carouselImages = [
   { src: heroImage, alt: "Eye doctor providing care" },
   { src: eyeglassesImage, alt: "Patient receiving eyeglasses" },

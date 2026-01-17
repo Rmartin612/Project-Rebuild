@@ -150,6 +150,13 @@ interface BoardMemberCardProps {
 export function BoardMemberCard({ member, onClick, index }: BoardMemberCardProps) {
   const [isHovered, setIsHovered] = useState(false);
 
+  // Debug: Log what imageUrl we're receiving
+  console.log(`BoardMemberCard for ${member.name}:`, {
+    hasImageUrl: !!member.imageUrl,
+    imageUrl: member.imageUrl,
+    imageUrlType: typeof member.imageUrl
+  });
+
   const initials = member.name
     .split(" ")
     .map((n) => n[0])
