@@ -1,0 +1,184 @@
+/* VER INTERNATIONAL - DESIGN ENHANCEMENTS
+   Premium Visual Effects & Animations */
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+/* HERO SECTION ENHANCEMENTS */
+.hero-section {
+    position: relative;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.4) 100%);
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+.hero-tagline {
+    letter-spacing: 2.5px;
+    font-weight: 300;
+    text-transform: uppercase;
+}
+
+.hero-title {
+    text-shadow: 0 2px 20px rgba(0,0,0,0.3);
+}
+
+/* NAVIGATION ENHANCEMENTS */
+.navbar {
+    transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
+}
+
+.navbar.scrolled {
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    background: rgba(255,255,255,0.95);
+    box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+}
+
+.nav-item {
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.nav-item::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 50%;
+    background: #D4894A;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.nav-item:hover::after,
+.nav-item.active::after {
+    width: 100%;
+}
+
+.logo-container {
+    transition: all 0.3s ease;
+}
+
+.navbar.scrolled .logo-container {
+    transform: scale(0.9);
+}
+
+/* BUTTON ENHANCEMENTS */
+.btn-primary,
+.cta-button {
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(212,137,74,0.3);
+    transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
+}
+
+.btn-primary:hover,
+.cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(212,137,74,0.4);
+}
+
+.btn-arrow,
+.cta-arrow {
+    display: inline-block;
+    transition: transform 0.3s ease;
+    margin-left: 8px;
+}
+
+.btn-primary:hover .btn-arrow,
+.cta-button:hover .cta-arrow {
+    transform: translateX(5px);
+}
+
+/* STATISTICS SECTION */
+.stat-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(212,137,74,0.2);
+    border-radius: 12px;
+    padding: 40px 30px;
+    transition: all 0.4s cubic/* VER INTERNATIONAL - DESIGN ENHANCEMENTS
+     Premium Visual Effects & Animations */
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+/* HERO SECTION ENHANCEMENTS */
+.hero-section {
+    position: relative;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.4) 100%);
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+.hero-tagline {
+    letter-spacing: 2.5px;
+    font-weight: 300;
+    text-transform: uppercase;
+}
+
+.hero-title {
+    text-shadow: 0 2px 20px rgba(0,0,0,0.3);
+}
+
+/* NAVIGATION ENHANCEMENTS */
+.navbar {
+    transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
+}
+
+.navbar.scrolled {
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    background: rgba(255,255,255,0.95);
+    box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+}
+
+.nav-item {
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.nav-item::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 50%;
+    back
