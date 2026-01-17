@@ -20,7 +20,7 @@ import meghanMartinImage from "@assets/board/meghan-martin.jpg";
 import ryanMartinImage from "@assets/board/ryan-martin.jpg";
 import charissaNelsonImage from "@assets/board/charissa-nelson.jpg";
 import wendyRussellImage from "@assets/board/wendy-russell.jpg";
-import michelleS heehyImage from "@assets/board/michelle-sheehy.jpg";
+import michelleSheehyImage from "@assets/board/michelle-sheehy.jpg";
 
 const carouselImages = [
   { src: heroImage, alt: "Eye doctor providing care" },
@@ -106,7 +106,7 @@ const boardMembersData: BoardMember[] = [
     id: "michelle-sheehy",
     name: "Michelle Sheehy",
     title: "Vision Screening Project Manager",
-    imageUrl: michelleS heehyImage,
+    imageUrl: michelleSheehyImage,
     bio: "At an early age, Michelle's family taught her the importance of giving back to others. At Mother McAuley Liberal Arts High School, she was taught the importance of having compassion towards the needs of others. When she was a high school junior, she was inspired by her cousin Bob, who introduced her to Amigos de las Americas. Thanks to Bob, she had the honor of participating in her first medical mission trip during Amigo's initial visit to Oaxaca, Mexico. Michelle immediately developed a deep passion for charitable work and for Latin America. For over fifteen years she has volunteered weekly at a hospital in Chicago devoted to serving chronically ill children. She has continued to participate as a volunteer on mission trips to Ecuador, Peru, and Nicaragua, and looks forward to volunteering with VER International to bring the gift of vision to many more children and adults in Latin America.",
     joinedYear: 2015,
     expertise: ["Financial Management", "Accounting", "Nonprofit Finance"],
